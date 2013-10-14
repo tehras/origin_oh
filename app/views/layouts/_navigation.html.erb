@@ -1,0 +1,82 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="navbar-container">
+    <div class="navbar-header">
+      <%= link_to "Olga's Helpers", root_url, :class => 'navbar-brand' %>
+      <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <i class="icon-reorder"></i>
+      </a>
+    </div>
+    <div id="nav-collapse" class="collapse navbar-collapse navbar-ex1-collapse" style="height: 1px">
+      <ul class="nav navbar-nav navbar-right">
+        <!--<li class="active"><a title="Home page" class="scroll brand-1" href="#home">Home</a></li>-->
+        <% if current_page? (root_path) %>
+        <li><%= link_to "Home", '#home',:title=>'Home Page', :class => 'scroll brand-1' %></li>
+        <li><a title="Check out our awesome services" href="#features" class=" scroll brand-4">Features</a></li>
+        <li><a title="Themes assets" href="#assets" class="scroll brand-3">Assets</a></li>
+        <li><a title="Who we are" href="#about" class="scroll fadeto brand-4"> About us</a></li>
+        <li><a title="Get in touch!" href="#contact" class="scroll brand-2">Contact</a></li>
+
+        <% else %>
+        <li><%= link_to "Home", root_path + '#home',:title=>'Home Page', :class => 'scroll brand-1' %></li>
+        <li><%= link_to "Features", root_path + '#features',:title=>'Features', :class => 'scroll brand-4' %></li>
+        <li><%= link_to "Assets", root_path + '#fassets',:title=>'Themes assets', :class => 'scroll brand-3' %></li>
+        <li><%= link_to "About Us", root_path + '#about',:title=>'Who we are', :class => 'scroll fedato brand-4' %></li>
+        <li><%= link_to "Contact", root_path + '#contact',:title=>'Get in touch!', :class => 'scroll brand-2' %></li>
+         <% end %>
+
+        <% if user_signed_in? %>
+            <li style="height: 47px" class="hoverli"  >
+
+              <% User.all.map.each do |user| %>
+              <a class="scroll brand-4" data-toggle="dropdown" href="#"><%= "#{user.name.capitalize}" %></a>
+              <% end %>
+
+              <ul class="dropdown-menu navbar-inverse file_menu" role="menu">
+                <li class="scroll brand-4">
+                  <%= link_to 'My Account', edit_user_registration_path,:style=>"color:white" %>
+                </li>
+                <% if current_user.has_role? :admin %>
+                    <li class="scroll brand-4">
+                      <!--<%= link_to 'Admin', users_path %>-->
+                      <%= link_to 'Management', managements_path, :style=>"color:white"%>
+                    </li>
+                <% end %>
+                <li class="scroll fedato brand-4" >
+                  <%= link_to 'Logout', destroy_user_session_path, :method => 'delete', :style=>"color:white" %>
+                </li>
+              </ul>
+
+            </li>
+
+        <% else %>
+
+            <li>
+              <%= link_to 'Login', new_user_session_path, :class => 'scroll brand-4' %>
+            </li>
+            <li>
+              <%= link_to 'Sign up', new_user_registration_path, :class => 'scroll brand-4' %>
+            </li>
+        <% end %>
+
+      </ul>
+    </div>
+  </div>
+  <!-- /.navbar-collapse -->
+</nav>
+
+<script>
+$(document).ready(function () {
+$(".hoverli").hover(
+function () {
+$('ul.file_menu').slideDown('slow');
+},
+function () {
+$('ul.file_menu').slideUp('medium');
+}
+);
+
+});
+</script>
+
+

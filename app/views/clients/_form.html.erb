@@ -1,0 +1,52 @@
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, :autofocused => true, :class => 'form-control', :id => 'expand-form' %>
+
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, :class => 'form-control', :id => 'expand-form' %>
+
+    <%= f.label :email %>
+    <%= f.text_field :email, :class => 'form-control', :id => 'expand-form' %>
+
+    <%= f.label "Home Number" %>
+    <%= f.text_field :home_number, :class => 'form-control', :id => 'expand-form' %>
+
+    <%= f.label "Mobile Phone" %>
+    <%= f.text_field :mobile_phone, :class => 'form-control', :id => 'expand-form' %>
+
+    <%= f.label "Fax Number" %>
+    <%= f.text_field :fax_number, :class => 'form-control', :id => 'expand-form' %>
+
+    <%= f.label "Street Address" %>
+    <%= f.text_field :street, :class => 'form-control', :id => 'expand-form' %>
+
+    <%= f.label "State" %>
+    <%= f.text_field :state, :class => 'form-control', :id => 'expand-form' %>
+
+    <%= f.label "Zip" %>
+    <%= f.text_field :zip, :class => 'form-control', :id => 'expand-form' %>
+
+    <%= f.label :nationaity %>
+    <%= f.text_field :nationality, :class => 'form-control', :id => 'expand-form' %>
+
+    <%= f.label "Languages Spoken" %>
+    <%= f.text_field :languages, :class => 'form-control', :id => 'expand-form' %>
+
+    <%= f.label "Years in US" %>
+    <%= f.text_field :years, :class => 'form-control', :id => 'expand-form' %>
+
+    <%= f.label :notes %>
+    <%= f.text_area :notes, :class => 'form-control', :id => 'expand-form', :required => false %>
+
+    <%= f.label "HHA Number" %>
+    <%= f.text_field :hha, :class => 'form-control', :id => 'expand-form' %>
+
+    <%= f.label "English (1 = bad, 9 = fluent)"%>
+    <%= f.select :english, 1..9%> <br />
+
+    <%= f.label "Has A Car?" %>
+    <%= f.check_box :car, {}, true, false %> <br />
+
+    <%= f.label "Has Driver License?" %>
+    <%= f.check_box :driver_license, {}, true,false %> <br />
+
+

@@ -1,0 +1,20 @@
+<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical', :role => 'form'}) do |f| %>
+    <h2>Sign In</h2>
+    <%= f.error_notification %>
+    <%= display_base_errors resource %>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.text_field :email, :placeholder => "example@mail.com", :type => 'email', :required => true, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.text_field :password, :type => 'password', :placeholder=> "Password", :required => true, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+    </div>
+    <%= f.button :submit, 'Sign in', :class => 'btn-default' %>
+    <div class="below-submit">
+      <%= render "devise/shared/links" %>
+    </div>
+<% end %>

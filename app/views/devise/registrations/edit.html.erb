@@ -1,0 +1,39 @@
+<div class="edit-window">
+
+  <%= simple_form_for(resource,:class =>"clickable", :as => resource_name, :url => registration_path(resource_name), :html => {:method => :put}) do |f| %>
+  <h3 class="expanderHead"><span class="expanderSign" style="cursor:pointer;">[+]</span> Update My Information</h3>
+  <div class="expanderContent">
+        <%= f.error_notification %>
+        <%= display_base_errors resource %>
+
+        <%= f.label :name %>
+        <%= f.text_field :name, :autofocused => true, :class => 'form-control', :id => 'expand-form' %>
+
+        <%= f.label :email %>
+        <%= f.text_field :email, :class => 'form-control', :id => 'expand-form' %>
+
+        <%= f.label :password %>
+        <%= f.text_field :password, :class => 'form-control', :id => 'expand-form', :autocomplete => "off", :hint => "Leave Blank if You Don't Want to Change It", :required => false %>
+
+        <%= f.label :password_confirmation %>
+        <%= f.text_field :password_confirmation, :class => 'form-control', :id => 'expand-form', :required => false %>
+
+        <%= f.label :current_password %>
+        <%= f.text_field :current_password, :class => 'form-control', :id => 'expand-form', :hint => "We Need Your Current Password To Confirm Your Changes", :required => true %>
+
+        </br>
+        <%= f.button :submit, 'Update', :class => 'btn-primary' %>
+  </div>
+  <% end %>
+
+</div>
+
+<!-- expand and collaps -->
+<script>
+$(".expanderContent").hide();
+$(".expanderSign").on('click', function () {
+$(this).text($(this).text() == '[+]' ? '[-]' : '[+]');
+$(this).parent().next("div").toggle('slow');
+});
+</script>
+

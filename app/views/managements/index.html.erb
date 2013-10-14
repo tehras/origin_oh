@@ -1,0 +1,21 @@
+<div class="edit-window">
+<h3 style="font-weight:bold">Caretaker Options:</h3>
+  <div class = "render-style">
+  <%= render :partial => 'caretakers/newct', :controller => @caretake %>
+  <%= render :partial => 'caretakers/updatect', :controller => @caretake %>
+  </div>
+<h3 style="text-align: left; font-weight:bold">Client Options:</h3>
+  <div class = "render-style">
+  <%= render :partial => 'clients/newcl', :controller => @client %>
+  <%= render :partial => 'clients/updatecl', :controller => @client %>
+  </div>
+</div>
+
+<!-- expand and collaps -->
+<script>
+    $(".expanderContent").hide();
+    $(".expanderSign").on('click', function () {
+        $(this).text($(this).text() == '[+]' ? '[-]' : '[+]');
+        $(this).parent().next("div").toggle('slow');
+    });
+</script>

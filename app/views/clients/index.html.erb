@@ -1,0 +1,59 @@
+<h1>Listing clients</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Home number</th>
+      <th>Mobile phone</th>
+      <th>Fax number</th>
+      <th>Street</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Nationality</th>
+      <th>Languages</th>
+      <th>English</th>
+      <th>Years</th>
+      <th>Hha</th>
+      <th>Driver license</th>
+      <th>Car</th>
+      <th>Notes</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clients.each do |client| %>
+      <tr>
+        <td><%= client.first_name %></td>
+        <td><%= client.last_name %></td>
+        <td><%= client.email %></td>
+        <td><%= client.home_number %></td>
+        <td><%= client.mobile_phone %></td>
+        <td><%= client.fax_number %></td>
+        <td><%= client.street %></td>
+        <td><%= client.state %></td>
+        <td><%= client.zip %></td>
+        <td><%= client.nationality %></td>
+        <td><%= client.languages %></td>
+        <td><%= client.english %></td>
+        <td><%= client.years %></td>
+        <td><%= client.hha %></td>
+        <td><%= client.driver_license %></td>
+        <td><%= client.car %></td>
+        <td><%= client.notes %></td>
+        <td><%= link_to 'Show', client %></td>
+        <td><%= link_to 'Edit', edit_client_path(client) %></td>
+        <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Client', new_client_path %>

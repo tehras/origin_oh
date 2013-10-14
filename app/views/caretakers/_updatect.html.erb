@@ -1,0 +1,70 @@
+<div class='management-window'>
+
+  <h3 class="expanderHead"><span class="expanderSign" style="cursor:pointer;">[+]</span> Update Caretaker</h3>
+
+  <div class='expanderContent'>
+    <div class="form-inputs">
+      <% Caretaker.all.map.each do |caretaker| %>
+          <h4 class="expanderHead" id="updateExpanderHead"><span class="expanderSign" style="cursor:pointer;">[+]</span><span style="max-width=250px,class="name-button"><%= " " + caretaker.first_name + caretaker.last_name %></span><span style="float:right"><%= link_to "DELETE", {:controller => :caretakers,
+                                                                                                                                                                                             :action => 'destroy', :id => caretaker.id },data: { confirm: 'Are you sure?' }, :method => :delete %></span></h4>
+
+          <div class='expanderContent'>
+            <div class="inner-content">
+              <%= simple_form_for @caretaker, :class => 'form-expandable', :url => {:controller => :caretakers,
+                                                                            :action => 'update', :id => caretaker.id }, :method => :patch do |f| %>
+
+                  <%= f.label :first_name %>
+                  <%= f.text_field :first_name, :autofocused => true, :value => caretaker.first_name, :class => 'form-control', :id => 'expand-form' %>
+
+                  <%= f.label :last_name %>
+                  <%= f.text_field :last_name, :value => caretaker.last_name, :class => 'form-control', :id => 'expand-form' %>
+
+                  <%= f.label :email %>
+                  <%= f.text_field :email, :value => caretaker.email, :class => 'form-control', :id => 'expand-form', :required => false %>
+
+                  <%= f.label :age %>
+                  <%= f.text_field :age, :class => 'form-control', :value => caretaker.age, :id => 'expand-form', :required => false %>
+
+                  <%= f.label :nationality %>
+                  <%= f.text_field :nationality, :value => caretaker.nationality, :class => 'form-control', :id => 'expand-form', :required => false %>
+
+                  <%= f.label :comment %>
+                  <%= f.text_area :comment, :value => caretaker.comment, :class => 'form-control', :id => 'expand-form', :required => false %>
+
+                  <br />
+                  <% if caretaker.car == true %>
+                  <%= f.label "Citizen?" %>
+                  <%= f.check_box :citizen, {:value => caretaker.citizen, :checked => true}, checked_value:true, unchacked_value:false %> <br />
+                  <% else %>
+                  <%= f.check_box :citizen, {:value => caretaker.citizen}, checked_value:true, unchacked_value:false %> <br />
+                  <% end %>
+
+                  <%= f.label "Has A Car?" %>
+                  <% if caretaker.car == true %>
+                  <%= f.check_box :car, {:value => caretaker.car, :checked => true}, checked_value:true, unchacked_value:false  %> <br />
+                  <% else %>
+                  <%= f.check_box :car, {:value => caretaker.car}, checked_value:true, unchacked_value:false  %> <br />
+                  <% end %>
+
+                  <%= f.label "Has Driver License?" %>
+                  <% if caretaker.driver_license == true %>
+                      <%= f.check_box :driver_license, {:value => caretaker.driver_license, :checked => true}, checked_value:true, unchacked_value:false  %> <br />
+                  <% else %>
+                      <%= f.check_box :driver_license, {:value => caretaker.driver_license}, checked_value:true, unchacked_value:false  %> <br />
+                  <% end %>
+
+                  <%= f.label "English (1 = bad, 9 = fluent)"%>
+                  <%= f.select :english, 1..9, :selected => caretaker.english.to_i %> <br />
+
+                  <div class="form-actions">
+                    <%= f.button :submit, 'Update' ,:class => 'btn-primary' %>
+                  </div>
+              <% end %>
+            </div>
+          </div>
+
+      <% end %>
+    </div>
+  </div>
+  </h4>
+</div>

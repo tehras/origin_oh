@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @caretaker.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @caretaker.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @caretaker.email %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @caretaker.age %>
+</p>
+
+<p>
+  <strong>Nationality:</strong>
+  <%= @caretaker.nationality %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @caretaker.comment %>
+</p>
+
+<p>
+  <strong>Citizen:</strong>
+  <%= @caretaker.citizen %>
+</p>
+
+<p>
+  <strong>Car:</strong>
+  <%= @caretaker.car %>
+</p>
+
+<p>
+  <strong>Driver license:</strong>
+  <%= @caretaker.driver_license %>
+</p>
+
+<p>
+  <strong>English:</strong>
+  <%= @caretaker.english %>
+</p>
+
+<%= link_to 'Edit', edit_caretaker_path(@caretaker) %> |
+<%= link_to 'Back', caretakers_path %>

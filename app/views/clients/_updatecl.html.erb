@@ -1,0 +1,87 @@
+<div class='management-window'>
+
+  <h3 class="expanderHead"><span class="expanderSign" style="cursor:pointer;">[+]</span> Update Client</h3>
+
+  <div class='expanderContent'>
+    <div class="form-inputs">
+      <% Client.all.map.each do |caretaker| %>
+          <h4 class="expanderHead" id="updateExpanderHead"><span class="expanderSign" style="cursor:pointer;">[+]</span><span style="max-width=250px,class="name-button"><%= " " + caretaker.first_name + caretaker.last_name %></span><span style="float:right"><%= link_to "DELETE", {:controller => :clients, :action => 'destroy', :id => caretaker.id },data: { confirm: 'Are you sure?' }, :method => :delete %></span> </h4>
+
+          <div class='expanderContent'>
+            <div class="inner-content">
+              <%= simple_form_for @client, :class => 'form-expandable', :url => {:controller => :clients,
+                                                                            :action => 'update', :id => caretaker.id }, :method => :patch do |f| %>
+
+                  <%= f.label :first_name %>
+                  <%= f.text_field :first_name, value:caretaker.first_name, :autofocused => true, :class => 'form-control', :id => 'expand-form' %>
+
+                  <%= f.label :last_name %>
+                  <%= f.text_field :last_name, value:caretaker.last_name, :class => 'form-control', :id => 'expand-form' %>
+
+                  <%= f.label :email %>
+                  <%= f.text_field :email, value:caretaker.email,  :class => 'form-control', :id => 'expand-form' %>
+
+                  <%= f.label "Home Number" %>
+                  <%= f.text_field :home_number, value:caretaker.home_number, :class => 'form-control', :id => 'expand-form' %>
+
+                  <%= f.label "Mobile Phone" %>
+                  <%= f.text_field :mobile_phone, value:caretaker.mobile_phone, :class => 'form-control', :id => 'expand-form' %>
+
+                  <%= f.label "Fax Number" %>
+                  <%= f.text_field :fax_number, value:caretaker.fax_number, :class => 'form-control', :id => 'expand-form' %>
+
+
+                  <%= f.label "Street Address" %>
+                  <%= f.text_field :street, value:caretaker.street, :class => 'form-control', :id => 'expand-form' %>
+
+                  <%= f.label "State" %>
+                  <%= f.text_field :state, value:caretaker.state, :class => 'form-control', :id => 'expand-form' %>
+
+                  <%= f.label "Zip" %>
+                  <%= f.text_field :zip, value:caretaker.zip, :class => 'form-control', :id => 'expand-form' %>
+
+                  <%= f.label :nationaity %>
+                  <%= f.text_field :nationality, value:caretaker.nationality, :class => 'form-control', :id => 'expand-form' %>
+
+                  <%= f.label "Languages Spoken" %>
+                  <%= f.text_field :languages, value:caretaker.languages, :class => 'form-control', :id => 'expand-form' %>
+
+                  <%= f.label "Years in US" %>
+                  <%= f.text_field :years, value:caretaker.years, :class => 'form-control', :id => 'expand-form' %>
+
+                  <%= f.label :notes %>
+                  <%= f.text_area :notes, value:caretaker.notes, :class => 'form-control', :id => 'expand-form', :required => false %>
+
+                  <%= f.label "HHA Number" %>
+                  <%= f.text_field :hha, value:caretaker.hha, :class => 'form-control', :id => 'expand-form' %>
+
+                  <%= f.label "English (1 = bad, 9 = fluent)"%>
+                  <%= f.select :english, 1..9, :selected => caretaker.english.to_i%> <br />
+
+                  <%= f.label "Has A Car?" %>
+                  <% if caretaker.car == true %>
+                  <%= f.check_box :car, { :checked => true}, checked_value:true, unchecked_value:false  %> <br />
+                  <% else %>
+                  <%= f.check_box :car,{}, true, false  %> <br />
+                  <% end %>
+
+                  <%= f.label "Has Driver License?" %>
+                  <% if caretaker.driver_license == true %>
+                  <%= f.check_box :driver_license, {:checked => true}, checked_value:true, unchacked_value:false %> <br />
+                  <% else %>
+                  <%= f.check_box :driver_license,{}, true, false  %> <br />
+                  <% end %>
+
+
+                  <div class="form-actions">
+                    <%= f.button :submit, 'Update' ,:class => 'btn-primary' %>
+                  </div>
+              <% end %>
+            </div>
+          </div>
+
+      <% end %>
+    </div>
+  </div>
+  </h4>
+</div>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "Olgas Helpers" %></title>
+  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Olgas Helpers" %>">
+  <meta charset="utf-8">
+  <meta name="author" content="prettystrap">
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application", :media => "all" %>
+  <%= csrf_meta_tags %>
+  <%= yield(:head) %>
+  <!-- Favicon -->
+  <%= favicon_link_tag "favicon.ico" %>
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="/js/html5shiv.js"></script>
+  <script src="/js/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar" data-offset="50">
+<%= render 'layouts/navigation' %>
+<%= render 'layouts/messages' %>
+<div id="main" role="main">
+<%= yield %>
+</div>
+<footer>
+  <%= render 'layouts/footer' %>
+</footer>
+<!--! end of #container -->
+</body>
+</html>

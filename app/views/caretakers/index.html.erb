@@ -1,0 +1,45 @@
+<h1>Listing caretakers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Age</th>
+      <th>Nationality</th>
+      <th>Comment</th>
+      <th>Citizen</th>
+      <th>Car</th>
+      <th>Driver license</th>
+      <th>English</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @caretakers.each do |caretaker| %>
+      <tr>
+        <td><%= caretaker.first_name %></td>
+        <td><%= caretaker.last_name %></td>
+        <td><%= caretaker.email %></td>
+        <td><%= caretaker.age %></td>
+        <td><%= caretaker.nationality %></td>
+        <td><%= caretaker.comment %></td>
+        <td><%= caretaker.citizen %></td>
+        <td><%= caretaker.car %></td>
+        <td><%= caretaker.driver_license %></td>
+        <td><%= caretaker.english %></td>
+        <td><%= link_to 'Show', caretaker %></td>
+        <td><%= link_to 'Edit', edit_caretaker_path(caretaker) %></td>
+        <td><%= link_to 'Destroy', caretaker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Caretaker', new_caretaker_path %>

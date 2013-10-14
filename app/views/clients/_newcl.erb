@@ -1,0 +1,21 @@
+
+<div class='management-window'>
+
+
+  <%= simple_form_for @client, :class => 'form-expandable', :url => {:controller => "clients", :action => "create"} do |f| %>
+      <%= f.error_notification %>
+      <h3 class="expanderHead"><span class="expanderSign" style="cursor:pointer;">[+]</span> Add Client</h3>
+      <div class='expanderContent'>
+        <div class="form-inputs">
+
+          <%= render :partial => 'clients/form', :locals => {f: f}%>
+
+
+
+          <div class="form-actions">
+            <%= f.button :submit, 'Create' ,:class => 'btn-primary' %>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>

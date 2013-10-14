@@ -1,0 +1,31 @@
+
+<%= f.label :first_name %>
+<%= f.text_field :first_name, :autofocused => true, :class => 'form-control', :id => 'expand-form' %>
+
+<%= f.label :last_name %>
+<%= f.text_field :last_name, :class => 'form-control', :id => 'expand-form' %>
+
+<%= f.label :email %>
+<%= f.text_field :email, :class => 'form-control', :id => 'expand-form', :required => false %>
+
+<%= f.label :age %>
+<%= f.text_field :age, :class => 'form-control', :id => 'expand-form', :required => false %>
+
+<%= f.label :nationality %>
+<%= f.text_field :nationality, :class => 'form-control', :id => 'expand-form', :required => false %>
+
+<%= f.label :comment %>
+<%= f.text_area :comment, :class => 'form-control', :id => 'expand-form', :required => false %>
+
+<br />
+<%= f.label "Citizen?" %>
+<%= f.check_box :citizen, {}, true, false %> <br />
+
+<%= f.label "Has A Car?" %>
+<%= f.check_box :car, {}, true, false %> <br />
+
+<%= f.label "Has Driver License?" %>
+<%= f.check_box :driver_license, {}, true,false %> <br />
+
+<%= f.label "English (1 = bad, 9 = fluent)"%>
+<%= f.select :english, 1..9%> <br />
